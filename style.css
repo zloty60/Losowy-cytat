@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #5a939a;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: 1.3px;
+}
+
+main {
+    max-width: 750px;
+    margin: 60px auto 0 auto;
+}
+
+.container {
+    max-width: 95%;
+    margin: 0 auto;
+    background-color: #F5F5F5;
+    -webkit-box-shadow: 0 0 2px #9d9d9d;
+    box-shadow: 0 0 5px #9d9d9d;
+}
+
+
+header {
+    background-color: #b0bec530;
+    padding: 23px;
+}
+
+.box {
+    padding: 35px;
+}
+
+h1,
+.tweet,
+.trigger {
+    text-transform: uppercase;
+}
+
+
+.trigger {
+    background-color: #009688;
+}
+
+.trigger:hover {
+    background-color: #00695f;
+}
+
+.quote {
+    margin: 30px 0;
+    font-family: 'Bad Script', cursive;
+    font-size: 28px;
+    position: relative;
+}
+
+.author {
+    font-size: 15px;
+    text-align: right;
+}
+
+
+.tweet,
+.trigger {
+    -webkit-transition: background-color 0.5s ease;
+    -webkit-transition: background-color 0.4s ease;
+    transition: background-color 0.4s ease;
+    border: none;
+    padding: 15px;
+    -webkit-box-shadow: 0 0 2px #6c6c6c;
+    box-shadow: 0 0 2px #9d9d9d;
+    cursor: pointer;
+}
+
+.tweet {
+    background-color: #0084b4;
+    font-size: 13px;
+    text-decoration: none;
+    color: #fafafa;
+}
+
+.tweet:hover {
+    background-color: #005c7d;
+}
+
+.btn {
+    background-color: #ececec;
+    padding: 23px;
+}
+
+.quote:before {
+    content: "\201C";
+    font-family: Georgia, serif;
+    font-size: 60px;
+    font-weight: bold;
+    color: #999;
+    position: absolute;
+    left: -12px;
+    top: -45px;
+}
