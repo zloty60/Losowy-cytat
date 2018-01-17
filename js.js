@@ -3,8 +3,20 @@ var tweetLink = "https://twitter.com/intent/tweet?text=";
 var quoteUrl = "https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1";
 
 function getQuote() {
-	$.getJSON(prefix + quoteUrl, createTweet);
-	$.ajaxSetup({ cache: false });
+    $.getJSON(prefix + quoteUrl, createTweet);
+    $.ajaxSetup({
+        cache: false,
+        beforeSend : function() {
+            console.log("trwa wysyłania żądania");
+            $(".quote-wrapper").hide();
+            $(".loader").show();
+        },
+         complete: function() {
+            console.log("żadania wysłano !!!");
+             $(".loader").hide();
+             $(".quote-wrapper").show();
+        }
+    });
 }
 
 function createTweet(input) {
@@ -16,22 +28,22 @@ function createTweet(input) {
     if (!quoteAuthor.length) {
         quoteAuthor = "Unknown author";
     }
-    
+
     var tweetText = "Quote of the day - " + quoteText + " Author: " + quoteAuthor;
-    
+
     if (tweetText.length > 140) {
-    getQuote();
-} else {
-    var tweet = tweetLink + encodeURIComponent(tweetText);
-    $('.quote').text(quoteText);
-    $('.author').text("Author: " + quoteAuthor);
-    $('.tweet').attr('href', tweet);
-}
+        getQuote();
+    } else {
+        var tweet = tweetLink + encodeURIComponent(tweetText);
+        $('.quote').text(quoteText);
+        $('.author').text("Author: " + quoteAuthor);
+        $('.tweet').attr('href', tweet);
+    }
 }
 
-$(document).ready(function() {
-		getQuote();
-	$('.trigger').on('click', function() {
-		getQuote();
-	});
+$(document).ready(function () {
+    getQuote();
+    $('.trigger').on('click', function () {
+        getQuote();
+    });
 });
